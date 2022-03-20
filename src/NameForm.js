@@ -16,7 +16,9 @@ class NameForm extends React.Component {
     }
 
     handleSubmit(event) {
-        this.props.addName(this.state.value);
+        if (this.state.value !== '') {
+            this.props.addName(this.state.value);
+        }
         this.setState({value: ''});
         event.preventDefault();
     }
@@ -25,8 +27,7 @@ class NameForm extends React.Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <label>
-                    Option:
-                    <input type="text" value={this.state.value} onChange={this.handleChange} />
+                    Option: <input type="text" value={this.state.value} onChange={this.handleChange} />
                 </label>
                 <input type="submit" value="Submit" />
             </form>

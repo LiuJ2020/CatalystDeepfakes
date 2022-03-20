@@ -45,7 +45,7 @@ class App extends React.Component {
     }
 
     getName() {
-        if (this.state.nameIndex === -1) {
+        if (this.state.nameIndex >= this.state.names.length || this.state.nameIndex < 0) {
             return "";
         }
         return this.state.names[this.state.nameIndex];
@@ -62,12 +62,12 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <p>
+                <h1>
                     Randomly Select a Group Decision Maker!
-                </p>
+                </h1>
                 {this.state.names.map((name) => (<CurrentName name={name} removeName={this.removeName}></CurrentName>))}
                 <NameForm addName={this.addName}></NameForm>
-                <button onClick={this.randomizeName}>
+                <button onClick={this.randomizeName} style={{marginTop: '25px'}}>
                     Find the decision maker!
                 </button>
                 <p>
