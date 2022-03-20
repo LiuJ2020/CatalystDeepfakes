@@ -18,7 +18,7 @@ class CurrentName extends React.Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <text>{this.props.name}</text>
-                <input type="image" src={x} />
+                <input type="image" src={x} width={25} height={25}/>
             </form>
         );
     }
