@@ -1,23 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
+import {useState} from "react";
 
 function App() {
+  const [names, setNames] = useState(["Jacob", "Cayla", "Matthew", "Michael"]);
+  const [nameIndex, setNameIndex] = useState(-1);
+
+  function getName() {
+      if (nameIndex === -1) {
+          return "";
+      }
+      return names[nameIndex];
+  }
+
+  function randomizeName() {
+      let newIndex = Math.floor(Math.random() * names.length);
+      while (newIndex == nameIndex) {
+          newIndex = Math.floor(Math.random() * names.length);
+      }
+      setNameIndex(newIndex);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+            {getName()}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <button onClick={randomizeName}>
+            Find the decision maker!
+        </button>
     </div>
   );
 }
