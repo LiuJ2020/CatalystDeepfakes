@@ -7,7 +7,7 @@ class App extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {names: ["Jacob", "Cayla", "Matthew", "Michael"],
+        this.state = {names: [],
                         nameIndex: -1};
 
         this.setNameIndex = this.setNameIndex.bind(this);
