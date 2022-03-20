@@ -9,16 +9,21 @@ class App extends React.Component {
         super(props);
         this.state = {names: ["Jacob", "Cayla", "Matthew", "Michael"],
                         nameIndex: -1};
+
+        this.setNameIndex = this.setNameIndex.bind(this);
+        this.randomizeName = this.randomizeName.bind(this);
+        this.removeName = this.removeName.bind(this);
+        this.getName = this.getName.bind(this);
     }
 
     setNameIndex(nameIndex) {
-        this.state = {names: this.state.names, nameIndex: nameIndex};
+        this.setState({names: this.state.names, nameIndex: nameIndex});
     }
 
     addName(name) {
         const names = this.state.names;
         names.concat([name]);
-        this.state = {names: names, nameIndex: this.state.nameIndex};
+        this.setState({names: names, nameIndex: this.state.nameIndex});
     }
 
     removeName(name) {
@@ -32,7 +37,10 @@ class App extends React.Component {
         if (index !== -1) {
             names.splice(index, index);
         }
-        this.state = {names: names, nameIndex: this.state.nameIndex};
+        if (index === 0) {
+            names.shift();
+        }
+        this.setState({names: names, nameIndex: this.state.nameIndex});
     }
 
     getName() {
