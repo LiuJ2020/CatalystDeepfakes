@@ -14,6 +14,7 @@ class App extends React.Component {
         this.randomizeName = this.randomizeName.bind(this);
         this.removeName = this.removeName.bind(this);
         this.getName = this.getName.bind(this);
+        this.addName = this.addName.bind(this);
     }
 
     setNameIndex(nameIndex) {
@@ -22,7 +23,7 @@ class App extends React.Component {
 
     addName(name) {
         const names = this.state.names;
-        names.concat([name]);
+        names.push([name]);
         this.setState({names: names, nameIndex: this.state.nameIndex});
     }
 
