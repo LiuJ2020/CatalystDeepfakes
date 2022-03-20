@@ -61,6 +61,9 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
+                <p>
+                    Randomly Select a Group Decision Maker!
+                </p>
                 {this.state.names.map((name) => (<CurrentName name={name} removeName={this.removeName}></CurrentName>))}
                 <NameForm addName={this.addName}></NameForm>
                 <button onClick={this.randomizeName}>
