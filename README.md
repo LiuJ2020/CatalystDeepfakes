@@ -1,1 +1,1 @@
-# CatalystDeepfakes
+# Hackalyst Decision Maker
